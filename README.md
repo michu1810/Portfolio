@@ -29,7 +29,7 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 
 Mam zajawkę na czysty, logiczny kod i naukę przez praktykę.  
 Zaczynałem od prostych pętli, dziś buduję własne webowe aplikacje.  
-Ten repozytorium pokazuje mój rozwój jako programisty — krok po kroku.
+To repozytorium pokazuje mój rozwój jako programisty — krok po kroku.
 
 📫 Jeśli chcesz się ze mną skontaktować – napisz na: **jamros.michal2020@gmail.com**  
 📄 CV i więcej informacji dostępne na moim profilu GitHub.
