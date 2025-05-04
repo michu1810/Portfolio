@@ -11,16 +11,17 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 ### 🎮 Guess the Number – Python terminal game  
 > Prosta gra konsolowa, w której gracz zgaduje losową liczbę z ograniczoną liczbą prób.
 
-🔗 [Zobacz projekt](./guess-number)  
-📝 [Zobacz kod](./guess-number/gamescript.py)
+🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/guess-number)  
+🔎 [Zobacz kod](https://github.com/michu1810/Portfolio/blob/main/guess-number/gamescript.py)
 
 ---
 
-### 🛠️ Projekty Django 
+### 💸 Budget Tracker – Django web app
 
-- Blog z rejestracją użytkowników i edycją postów
-- ToDo lista z obsługą baz danych
-- Aplikacja kontaktowa z panelem admina
+Aplikacja webowa w Django do zarządzania domowym budżetem. Pozwala dodawać, edytować i filtrować wydatki oraz przeglądać miesięczne podsumowania.
+
+🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/django-budget)  
+📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/django-budget/README.md)
 
 ---
 
