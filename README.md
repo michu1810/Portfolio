@@ -20,7 +20,7 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 
 > Rozbudowany kalkulator terminalowy w Pythonie, obsługujący m.in. podstawowe działania, trygonometrię, silnię, logarytmy i zapis historii do pliku. Projekt skupia się na pracy z `try/except`, przetwarzaniem danych wejściowych i użyciem modułu `math`.
 
-🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/python-calculator)  
+🔗 [Zobacz kod](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/calc.py)  
 📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/README.md)
 
 ---
