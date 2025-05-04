@@ -23,7 +23,7 @@ Aplikacja webowa stworzona w Django, służąca do zarządzania i śledzenia dom
 
 | Filtrowanie i podsumowanie | Lista wydatków |
 |----------------------------|----------------|
-| ![](../screens/screen1.png) | ![](../screens/screen2.png) |
+| ![](screens/screen1.png) | ![](screens/screen2.png) |
 
 ---
 
@@ -63,8 +63,8 @@ pip install django
 ---
 
 ✍️ Autor
-Michał Jamros
-GitHub → michu1810
+Michał Jamros  
+GitHub: [https://github.com/michu1810](https://github.com/michu1810)
 
 ---
 
@@ -90,9 +90,11 @@ A Django-based web application for managing and tracking personal expenses. User
 
 ## 📷 Screenshots
 
-| Filter and Summary | Expense List |
-|--------------------|--------------|
+
+| Filter and Summary |Expense List |
+|----------------------------|----------------|
 | ![](screens/screen1.png) | ![](screens/screen2.png) |
+
 
 ---
 
@@ -131,8 +133,9 @@ pip install django
 
 ---
 
-✍️ Author
-Michał Jamros
-GitHub → michu1810
+## ✍️ Author
+
+Michał Jamros  
+GitHub: [https://github.com/michu1810](https://github.com/michu1810)
 
 
