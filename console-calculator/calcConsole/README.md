@@ -1,4 +1,4 @@
-# 🧮 Python Calculator – konsolowy kalkulator naukowy
+# 🧮 Python Calculator – konsolowy kalkulator naukowy (PL)
 
 Ten projekt to prosty, ale rozbudowany kalkulator konsolowy napisany w Pythonie. Obsługuje zarówno podstawowe działania matematyczne, jak i funkcje trygonometryczne, logarytmy czy potęgowanie. Celem projektu była nauka przetwarzania danych wejściowych, pracy z wyjątkami (`try/except`) oraz logiki warunkowej w Pythonie.
 
@@ -60,7 +60,7 @@ Michał Jamros
 
 ---
 
-# 🧮 Python Calculator – Console-Based Scientific Calculator
+# 🧮 Python Calculator – Console-Based Scientific Calculator (EN)
 
 This project is a simple yet advanced console calculator written in Python. It supports both basic mathematical operations and more advanced functions such as trigonometry, logarithms, and exponentiation. The goal of the project was to practice handling user input, `try/except` exception handling, and conditional logic in Python.
 
