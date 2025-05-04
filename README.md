@@ -16,12 +16,19 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 
 ---
 
-### 💸 Budget Tracker – Django web app
-
-> Aplikacja webowa w Django do zarządzania domowym budżetem. Pozwala dodawać, edytować i filtrować wydatki oraz przeglądać miesięczne podsumowania.
+### 💸 Budget Tracker – Django web app  
+> Aplikacja webowa w Django do zarządzania domowym budżetem. Oparta na widokach funkcyjnych (FBV), umożliwia dodawanie, filtrowanie i agregowanie wydatków z dynamicznym filtrem GET i miesięcznymi podsumowaniami. Wykorzystuje ORM, SQLite, `Sum()`, `messages`, `POST/GET`, szablony HTML.
 
 🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/django-budget/Budzet)  
 📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/django-budget/README.md)
+
+---
+
+### ✅ Django To-Do App – Lista zadań  
+> Prosta aplikacja Django wykorzystująca CBV (`CreateView`, `ListView`, `DeleteView`). Pozwala tworzyć i zarządzać zadaniami. Używa `ModelForm`, ORM, walidacji formularzy i szablonów HTML.
+
+🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/django-todo)  
+📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/django-todo/README.md)
 
 ---
 
