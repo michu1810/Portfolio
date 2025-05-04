@@ -20,7 +20,7 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 
 Aplikacja webowa w Django do zarządzania domowym budżetem. Pozwala dodawać, edytować i filtrować wydatki oraz przeglądać miesięczne podsumowania.
 
-🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/django-budget)  
+🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/django-budget/Budzet)  
 📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/django-budget/README.md)
 
 ---
