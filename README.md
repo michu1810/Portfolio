@@ -1,7 +1,7 @@
 # 🧠 Python & Django Portfolio by Michał Jamros
 
 Cześć! 👋  
-Witaj w moim repozytorium z projektami stworzonymi w Pythonie oraz Django. Znajdziesz tu zarówno proste gry i aplikacje konsolowe, oraz pełne aplikacje webowe.  
+Witaj w moim repozytorium z projektami stworzonymi w Pythonie oraz Django. Znajdziesz tu proste gry i aplikacje konsolowe, oraz pełne aplikacje webowe.  
 Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętności jako Python developer 💻
 
 ---
