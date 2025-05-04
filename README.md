@@ -38,4 +38,4 @@ A simple console game written in Python where the player tries to guess a random
 ## ▶️ How to Run
 
 ```bash
-python guess_the_number.py
+python gamescript.py
