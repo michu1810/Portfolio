@@ -1,7 +1,7 @@
 # 🧠 Python & Django Portfolio by Michał Jamros
 
 Cześć! 👋  
-Witaj w moim repozytorium z projektami stworzonymi w Pythonie oraz Django. Znajdziesz tu proste gry i aplikacje konsolowe, oraz pełne aplikacje webowe.  
+Witaj w moim repozytorium z projektami stworzonymi w Pythonie oraz Django. Znajdziesz tu  proste gry i aplikacje konsolowe, oraz pełne aplikacje webowe.  
 Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętności jako Python developer 💻
 
 ---
@@ -32,6 +32,14 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 
 ---
 
+### 📚 Django Library App – Zarządzanie książkami  
+> Aplikacja Django oparta na widokach funkcyjnych (FBV), umożliwia dodawanie, filtrowanie, sortowanie i usuwanie książek. Obsługuje zapytania GET/POST, `messages` i dynamiczny interfejs z Bootstrapem.
+
+🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/django-library)  
+📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/django-library/README.md)
+
+---
+
 ## 👨‍💻 O mnie
 
 Mam zajawkę na czysty, logiczny kod i naukę przez praktykę.  
@@ -52,5 +60,3 @@ To repozytorium pokazuje mój rozwój jako programisty — krok po kroku.
 - Podstawy front-endu (HTML/CSS)
 
 ---
-
-Dzięki za odwiedziny! ⭐ Jeśli coś Ci się spodobało, zostaw "Star" albo napisz wiadomość!
