@@ -59,10 +59,13 @@ GitHub → michu1810
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-💸 Budget Tracker – Django Web App
+#💸 Budget Tracker – Django Web App
 A Django-based web application for managing and tracking personal expenses. Users can add, edit, and filter expenses by date and category. The clean and intuitive UI makes it easy to monitor monthly summaries and expense history.
 
-🔍 Features
+--
+
+## 🔍 Features
+
 ✅ Add new expenses (description, amount, category, date)
 ✅ Edit or delete existing transactions
 ✅ Filter by:
@@ -73,24 +76,34 @@ A Django-based web application for managing and tracking personal expenses. User
 ✅ Clean and responsive frontend (HTML + CSS)
 ✅ Data stored securely via Django ORM (SQLite)
 
-📷 Screenshots
-Filter and Summary	Expense List
+--
 
-🛠️ Technologies
+## 📷 Screenshots
+
+| Filter and Summary | Expense List |
+|----------------------------|----------------|
+| ![](../screens/screen1.png) | ![](../screens/screen2.png) |
+
+
+--
+
+## 🛠️ Technologies
 Python 3.11+
-
 Django 4.x
-
 SQLite 3
-
 HTML & CSS
 
-# 🚀 How to Run Locally
+--
+
+## 🚀 How to Run Locally
 ```bash
 git clone https://github.com/michu1810/Portfolio.git
 cd Portfolio/django-budget/Budzet
 python manage.py runserver
 ```
+
+--
+
 Make sure Django is installed:
 pip install django
 
