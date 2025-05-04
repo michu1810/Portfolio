@@ -16,6 +16,10 @@ Prosta gra konsolowa napisana w Pythonie, która polega na zgadywaniu wylosowane
 - Python 3.6+
 
 ## ▶️ Uruchomienie
+
+```bash
+python gamescript.py
+```
 -----------------------------------------------------------------------------------------------------------------------------
 EN : 
 
