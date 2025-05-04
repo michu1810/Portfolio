@@ -45,7 +45,7 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 > Aplikacja Django oparta na widokach funkcyjnych (FBV), umożliwia dodawanie, filtrowanie, sortowanie i usuwanie książek. Obsługuje zapytania GET/POST, `messages` i dynamiczny interfejs z Bootstrapem.
 
 🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/django-library)  
-📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/django-library/README.md)
+📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/django-library/biblioteka/README.md)
 
 ---
 
