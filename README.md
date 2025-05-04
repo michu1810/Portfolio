@@ -11,8 +11,9 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 ### 🎮 Guess the Number – Python terminal game  
 > Prosta gra konsolowa, w której gracz zgaduje losową liczbę z ograniczoną liczbą prób.
 
-🔎 [Zobacz kod](https://github.com/michu1810/Portfolio/blob/main/guess-number/gamescript.py)
-📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/guess-number/README.md)  
+🔎 [Zobacz kod](https://github.com/michu1810/Portfolio/blob/main/guess-number/gamescript.py)  
+📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/guess-number/README.md)
+  
 
 ---
 
