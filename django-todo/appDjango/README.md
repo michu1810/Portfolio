@@ -1,3 +1,5 @@
+### 📅 [Django To-Do App](./appDjango)
+
 # 📅 Django To-Do App
 
 Prosta aplikacja webowa napisana w Django, która pozwala tworzyć i zarządzać zadaniami. Projekt pozwala dodawać, edytować i usuwać zadania oraz przechowywać je w bazie SQLite. 
