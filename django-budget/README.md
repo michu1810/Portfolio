@@ -51,7 +51,14 @@ pip install django
 ---
 
 📁 Struktura
-<pre> ```text Budzet/ ├── manage.py ├── db.sqlite3 ├── Budzet/ ← konfiguracja Django (settings, urls) └── wydatki/ ← główna aplikacja: modele, widoki, szablony ``` </pre>
+
+<pre> 
+  Budzet/ 
+  ├── manage.py 
+  ├── db.sqlite3 
+  ├── Budzet/ ← konfiguracja Django (settings, urls) 
+  └── wydatki/ ← główna aplikacja: modele, widoki, szablony 
+</pre>
 
 ---
 
@@ -114,7 +121,13 @@ pip install django
 ---
 
 📁 Structure
-<pre> ```text Budzet/ ├── manage.py ├── db.sqlite3 ├── Budzet/ ← Django settings and configuration └── wydatki/ ← main app: models, views, templates ``` </pre>
+<pre> 
+  Budzet/ 
+  ├── manage.py 
+  ├── db.sqlite3 
+  ├── Budzet/ ← Django settings and configuration 
+  └── wydatki/ ← main app: models, views, templates
+</pre>
 
 ---
 
