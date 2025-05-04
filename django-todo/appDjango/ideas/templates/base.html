@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Moja ToDo Lista{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body.dark-mode{
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        body.dark-mode .card {
+            background-color: #1e1e1e;
+            border-color: #333;
+        }
+        body.dark-mode .btn {
+            border-color: #555;
+        }
+
+        body.dark-mode .list-group-item {
+        background-color: #1a1a1a;
+        border-color: #333;
+        color: #e0e0e0;
+        }
+
+        body.dark-mode .form-control,
+        body.dark-mode .form-select {
+        background-color: #2a2a2a;
+        color: #e0e0e0;
+        border-color: #444;
+        }
+
+        .mode-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        }
+    </style>
+</head>
+<body class="container mt-5">
+
+    <h1 class="mb-4">📝 Moja ToDo Lista</h1>
+    <div class="mode-toggle">
+        <button class="btn btn-outline-secondary btn-sm" onclick="toggleDarkMode()">🌙 Tryb ciemny</button>
+    </div>
+
+    <!-- Tutaj pojawią się komunikaty -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Tutaj wstawiamy zawartość każdej konkretnej strony -->
+    {% block content %}
+    {% endblock %}
+<script>
+    function toggleDarkMode(){
+    document.body.classList.toggle('dark-mode');
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

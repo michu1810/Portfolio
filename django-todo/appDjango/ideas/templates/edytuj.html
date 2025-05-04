@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Edytuj zadanie{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="tytul" class="form-label">Tytuł:</label>
+                    <input type="text" id="tytul" name="tytul" class="form-control" value="{{ zadanie.tytul }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="opis" class="form-label">Opis:</label>
+                    <textarea name="opis" id="opis" class="form-control">{{ zadanie.opis }}</textarea>
+
+                    <label for="status" class="form-label">Status:</label>
+                    <select id="status" name="status" class="form-select">
+                        <option value="do zrobienia" {% if zadanie.status == 'do zrobienia' %}selected{% endif %}>Do zrobienia</option>
+                        <option value="w trakcie" {% if zadanie.status == 'w trakcie' %}selected{% endif %}>W trakcie</option>
+                        <option value="zrobione" {% if zadanie.status == 'zrobione' %}selected{% endif %}>Zrobione</option>
+                    </select>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+                <a href="{% url 'lista_zadan' %}" class="btn btn-secondary">← Wróć do listy</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

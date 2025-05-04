@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Dodaj zadanie{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="tytul" class="form-label">Tytuł:</label>
+                    <input type="text" id="tytul" name="tytul" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status:</label>
+                    <textarea name="opis" id="opis" class="form-control">{{ zadanie.opis }}</textarea>
+                </div>
+
+                <div class="mb-3">
+
+                    <select id="status" name="status" class="form-select">
+                        <option value="do zrobienia">Do zrobienia</option>
+                        <option value="w trakcie">W trakcie</option>
+                        <option value="zrobione">Zrobione</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Zapisz zadanie</button>
+                <a href="{% url 'lista_zadan' %}" class="btn btn-secondary">← Wróć do listy</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

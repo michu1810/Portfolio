@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Lista zadań{% endblock %}
+{% block content %}
+<p class="text-muted">
+    Znaleziono {{ ilosc_zadan }} {{ ilosc_zadan|pluralize:"zadanie,zadania,zadań"}}
+    {% if wybrany_status %}
+        (status: <strong>{{ wybrany_status }}</strong>)
+    {% endif %}
+</p>
+<div class="mb-4 btn=group" role="group" aria-label="Filtry zadań">
+    <a href="{% url 'lista_zadan' %}" class="btn {% if not wybrany_status %}btn-primary{% else %}btn-outline-primary{% endif %}">
+        Wszystkie
+    </a>
+     <a href="{% url 'lista_zadan' %}?status=do zrobienia" class="btn {% if wybrany_status == 'do zrobienia' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+        Do zrobienia
+    </a>
+     <a href="{% url 'lista_zadan' %}?status=w trakcie" class="btn {% if wybrany_status == 'w trakcie' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+        W trakcie
+    </a>
+     <a href="{% url 'lista_zadan' %}?status=zrobione" class="btn {% if wybrany_status == 'zrobione' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+        Zrobione
+    </a>
+
+</div>
+
+
+    <ul class="list-group">
+        {% for zadanie in zadania %}
+            <li class="list-group-item d-flex justify-content-between align-items-center
+                {% if zadanie.status == 'zrobione' %}list-group-item-success{% elif zadanie.status == 'w trakcie' %}list-group-item-warning{% else %}list-group-item-light{% endif %}">
+
+                <div>
+                    <strong>{{ zadanie.tytul }}</strong>
+                    <span class="badge bg-secondary">{{ zadanie.status }}</span>
+                    <p class="text-muted small">{{ zadanie.opis }}</p>
+
+                </div>
+
+                <div class="btn-group">
+                        <form method="POST" action="{% url 'przelacz_status' zadanie.id %}">
+                            {% csrf_token %}
+                            <div class="form-check d-flex align-items-center">
+                            <input type="hidden" name="checkbox_status" id="checkbox-status-{{ zadanie.id }}" value="{% if zadanie.status == 'zrobione' %}on{% else %}off{% endif %}">
+                            <input type="checkbox" title="Kliknij, by oznaczyć jako zrobione" class="form-check-input me-3 mt-1"
+                                   {% if zadanie.status == 'zrobione' %}checked{% endif %}
+                                    onchange="
+                                        console.log('Kliknieto checkbox dla zadania ID: {{ zadanie.id }}');
+                                        document.getElementById('checkbox-status-{{ zadanie.id }}').value = this.checked ? 'on' : 'off';
+                                        this.form.submit();">
+                                </div>
+
+                        </form>
+                    <a href="{% url 'edytuj_zadanie' zadanie.id %}" class="btn btn-sm btn-outline-primary">Edytuj</a>
+                    <a href="{% url 'usun_zadanie' zadanie.id %}" class="btn btn-sm btn-outline-danger">Usuń</a>
+
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div class="mt-4">
+        <a href="{% url 'dodaj_zadanie' %}" class="btn btn-success">➕ Dodaj nowe zadanie</a>
+    </div>
+
+{% endblock %}
