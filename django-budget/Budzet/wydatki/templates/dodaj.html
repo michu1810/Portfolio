@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj wydatek</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/minty/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST">
+                {% csrf_token %}
+                <label for="opis" class="form-label">Opis:</label><br>
+                <textarea id="opis" class="form-control" name="opis" placeholder="Wpisz opis"></textarea><br><br>
+                <label for="kwota" class="form-label">Kwota:</label><br>
+                <input type="number" class="form-control" step="0.01" lang="en" id="kwota" name="kwota" placeholder="Wpisz kwotę" min="0"><br><br>
+                <label for="kategoria" class="form-label">Kategoria:</label><br>
+             <select id="kategoria" name="kategoria" class="form-select">
+                <option value="zywnosc">Żywność</option>
+                 <option value="samochod">Samochód</option>
+                <option value="mieszkanie">Mieszkanie</option>
+                <option value="wlasne potrzeby">Własne potrzeby</option>
+                <option value="kredyt">Kredyt</option>
+                <option value="ogolna">Ogólna</option>
+                <option value="nagle wydatki">Nagłe wydatki</option>
+            </select><br><br>
+                <label for="data" class="form-label">Data:</label><br>
+                <input type="date" class="form-control" id="data" name="data"><br><br>
+                <button type="submit" class="btn btn-success">Dodaj wydatek</button><br>
+                <br><a href="{% url 'lista_wydatkow' %}" class="btn btn-secondary">← Wróć do listy</a>
+            </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

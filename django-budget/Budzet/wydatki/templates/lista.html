@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista wydatków</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/minty/bootstrap.min.css">
+
+
+</head>
+<body>
+<div class="container mt-5">
+        <div class="row">
+        <div class="col-md-6">
+<h1>Posortuj wydatki: </h1><br>
+
+<form method="get">
+    {% csrf_token %}
+    <label for="data_od" class="form-label">Data od:</label><br>
+    <input type="date" class="form-control" id="data_od" name="data_od"><br><br>
+    <label for="data_do" class="form-label">Data do:</label><br>
+    <input type="date" class="form-control" id="data_do" name="data_do"><br><br>
+    <label for="kategoria" class="form-label">Kategoria:</label><br>
+    <select id="kategoria" name="kategoria" class="form-select">
+        <option value="wszystkie">Wszystkie</option>
+        <option value="zywnosc">Żywność</option>
+        <option value="samochod">Samochód</option>
+        <option value="mieszkanie">Mieszkanie</option>
+        <option value="wlasne potrzeby">Własne potrzeby</option>
+        <option value="kredyt">Kredyt</option>
+        <option value="ogolna">Ogólna</option>
+        <option value="nagle wydatki">Nagłe wydatki</option>
+    </select><br><br>
+
+    <button type="submit" class="btn btn-success">Sortuj</button><br><br>
+
+
+</form>
+
+{% for wydatek in wydatki %}
+            <div class="card mb-3"><br>
+    <h5 class="card-title text-center"> Wydatek</h5>
+  <div class="card-body">
+      Opis: {{ wydatek.opis }}<br>
+    Kwota: <strong>{{ wydatek.kwota }} zł</strong><br>
+  Kategoria: {{ wydatek.get_kategoria_display }}<br>
+  Data: {{ wydatek.data|date:"j E Y" }}<br>
+      </div>
+    <div class="card-footer">
+            <a href="{% url 'usun_wydatek' wydatek.id %}" class="btn btn-danger">Usuń</a>
+            <a href="{% url 'edytuj_wydatek' wydatek.id %}" class="btn btn-primary">Edytuj</a><br><br>
+    </div>
+            </div>
+{% endfor %}
+
+
+<br><a href="{% url 'dodaj_wydatek' %}" class="btn btn-success">➕ Dodaj nowy wydatek</a>
+</div>
+            <div class="col-md-6">
+<h3>📊 Miesięczne podsumowanie</h3>
+<ul>
+    {% for miesiac in podsumowanie %}
+        <li>
+            {{ miesiac.data__year }}-{{ miesiac.data__month }} → {{ miesiac.suma|floatformat:2 }} zł
+        </li>
+    {% endfor %}
+</ul>
+            </div>
+
+        </div>
+</div>
+</body>
+</html>
