@@ -38,8 +38,9 @@ Ten repozytorium pokazuje mój rozwój jako programisty — krok po kroku.
 
 ## 💡 Technologie
 
-- Python 3.x
-- Django (w kolejnych projektach)
+- Python 3.11+
+- Django 4.x
+- SQLite 3
 - Git & GitHub
 - Podstawy front-endu (HTML/CSS)
 
