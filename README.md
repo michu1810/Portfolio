@@ -16,6 +16,15 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 
 ---
 
+### 🧮 Python Calculator – Konsolowy kalkulator naukowy
+
+> Rozbudowany kalkulator terminalowy w Pythonie, obsługujący m.in. podstawowe działania, trygonometrię, silnię, logarytmy i zapis historii do pliku. Projekt skupia się na pracy z `try/except`, przetwarzaniem danych wejściowych i użyciem modułu `math`.
+
+🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/python-calculator)  
+📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/python-calculator/README.md)
+
+---
+
 ### 💸 Budget Tracker – Django web app  
 > Aplikacja webowa w Django do zarządzania domowym budżetem. Oparta na widokach funkcyjnych (FBV), umożliwia dodawanie, filtrowanie i agregowanie wydatków z dynamicznym filtrem GET i miesięcznymi podsumowaniami. Wykorzystuje ORM, SQLite, `Sum()`, `messages`, `POST/GET`, szablony HTML.
 
