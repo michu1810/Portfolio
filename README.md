@@ -37,7 +37,7 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 > Prosta aplikacja Django wykorzystująca CBV (`CreateView`, `ListView`, `DeleteView`). Pozwala tworzyć i zarządzać zadaniami. Używa `ModelForm`, ORM, walidacji formularzy i szablonów HTML.
 
 🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/django-todo)  
-📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/django-todo/README.md)
+📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/django-todo/appDjango/README.md)
 
 ---
 
