@@ -1,4 +1,4 @@
-### 💸 [Django Budget App](./django-budget/Budzet)
+### 💸 [Django Budget App](./Budzet)
 # 💸 Budżet Domowy – Aplikacja Django
 
 Aplikacja webowa stworzona w Django, służąca do zarządzania i śledzenia domowych wydatków. Umożliwia dodawanie, edytowanie oraz filtrowanie wydatków według daty i kategorii. Prosty i przejrzysty interfejs pozwala szybko kontrolować miesięczne podsumowania i historię transakcji.
