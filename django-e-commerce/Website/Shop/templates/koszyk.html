@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Koszyk</title>
+    <link rel="stylesheet" href="{% static '/Shop/css/style.css' %}">
+</head>
+<body>
+ {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+<div class="cart-page-content">
+{% load koszyk_tags %}
+{% for produkt in produkty %}
+    <div class="cart-item">
+  <div class="cart-item-info">{{ produkt.nazwa }}</div>
+  <img src="{{ produkt.zdjecie.url }}" alt="{{ produkt.nazwa }}" width="100">
+  <div class="cart-item-quantity-display">ilość: {{ koszyk|dict_get:produkt.id|stringformat:"s" }}</div>
+  <div class="cart-item-price-display">cena za 1 szt.: {{ produkt.cena }}</div>
+      <div class="cart-item-subtotal">razem: {{ produkt.cena|floatformat:2 }} × {{ koszyk|dict_get:produkt.id|stringformat:"s" }} zł</div>
+<div class="cart-item-quantity-change">
+        <form action="{% url 'aktualizuj_koszyk' produkt.id %}" method="post">
+    {% csrf_token %}
+    <input type="number" placeholder="Podaj nową ilość" name="ilosc" min="0" value="koszyk|dict_get:produkt.id">
+    <input type="submit" value="Zmień ilość">
+
+</form>
+    </div>
+        <div class="cart-item-remove">
+<form action="{% url 'usun_z_koszyka' produkt.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Usuń">
+</form>
+            </div>
+        </div>
+{% endfor %}
+   </div>
+
+<p class="cart-total">Razem do zapłaty: {{ suma }} zł</p>
+ <a href="{% url 'checkout' %}" class="btn">Podsumowanie zamówienia</a><br>
+ <a href="{% url 'lista_produktow' %}" class="btn">Wróć do sklepu</a>
+
+</body>
+</html>

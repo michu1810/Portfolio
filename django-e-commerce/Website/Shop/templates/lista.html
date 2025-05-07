@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Strona glówna</title>
+    <link rel="stylesheet" href="{% static '/Shop/css/style.css' %}">
+</head>
+<body>
+<div class="container">
+    <header class="site-header">
+    <h1>Sklep Internetowy by Michał Jamros</h1>
+<a href="{% url 'pokaz_koszyk' %}" class="btn2">Pokaz koszyk</a>
+
+<nav class="user-nav">
+    {% if user.is_active %}
+<span>Witaj! {{ user.username }}</span>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <input type="submit" value="Wyloguj się">
+</form>
+
+{% else %}
+<a href="{% url 'login' %}" class="btn">Zaloguj się</a>
+<a href="{% url 'register' %}" class="btn">Zarejestruj się</a>
+{% endif %}
+    </nav>
+    </header>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <div class="page-layout">
+        <div class="sidebar">
+<form action="{% url 'lista_produktow' %} " method="get" class="filter-form">
+    <label for="nazwa">Nazwa:</label>
+    <input type="text" id="nazwa" name="nazwa" placeholder="Filtruj po nazwie" value="{{request.GET.nazwa|default:''}}"><br>
+    <label for="marka">Marka:</label>
+    <input type="text" id="marka" name="marka" placeholder="Filtruj po marce" value="{{request.GET.marka|default:''}}"><br>
+    <label for="cena_min">Cena minimalna:</label>
+    <input type="number" id="cena_min" name="cena_min" placeholder="Filtruj po cenie minimalnej" value="{{request.GET.cena_min|default:''}}"><br>
+    <label for="cena_max">Cena maksymalna:</label>
+    <input type="number" id="cena_max" name="cena_max" placeholder="Filtruj po cenie maksymalnej" value="{{request.GET.cena_max|default:''}}"><br>
+    <select name="kategoria">
+        <option value=""> Wybierz kategorię </option>
+        {% for key, value in kategorie %}
+            <option value="{{ key }}" {% if request.GET.kategoria == key %}selected{% endif %}>{{ value }}</option>
+        {% endfor %}
+    </select><br>
+<button type="submit">Filtruj</button>  <a href="{% url 'lista_produktow' %}" class="btn">Pokaż wszystko</a>
+</form>
+        </div>
+<div class="main-content">
+    <div class="product-list">
+        {% for produkt in page_obj %}
+    <div class="product-item">
+  <p>Nazwa:</p> <a href="{% url 'szczegoly_produktu' produkt.id %}">{{ produkt.nazwa }}</a>
+  <p>Marka:</p> {{ produkt.marka }}
+  <p>Cena:</p> <div class="product-price"> {{ produkt.cena }} zł</div>
+  <p>Opis:</p> {{ produkt.opis }}
+  <p>Kategoria: {{ produkt.get_kategoria_display }}</p>
+  <img src="{{ produkt.zdjecie.url }}" alt="{{ produkt.nazwa }}" width="200">
+  <form action="{% url 'dodaj_do_koszyka' produkt.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Dodaj do koszyka</button>
+  </form><br>
+    </div>
+{% endfor %}
+
+            </div>
+ <footer>
+            {% if page_obj.has_previous %}
+            <a href="?page= {{ page_obj.previous_page_number }}">Poprzednia</a>
+            {% endif %}
+            Strona {{ page_obj.number }} z {{ page_obj.paginator.num_pages }}
+            {% if page_obj.has_next %}
+            <a href="?page= {{ page_obj.next_page_number }}">Następna</a>
+            {% endif %}
+        </footer>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

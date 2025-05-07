@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Profil</title>
+    <link rel="stylesheet" href="{% static '/Shop/css/style.css' %}">
+</head>
+<body>
+{% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+<div class="user-informations">
+<h3>Cześć {{ user.username }} oto twój profil</h3>
+    <p>Życzymy udanych zakupów!</p>
+<a href="{% url 'lista_produktow' %}" class="btn">Wróc na stronę główną</a>
+
+    </div>
+</body>
+</html>

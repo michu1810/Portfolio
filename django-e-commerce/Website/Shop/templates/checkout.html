@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>CHECKOUT</title>
+    <link rel="stylesheet" href="{% static '/Shop/css/style.css' %}">
+
+</head>
+<body>
+ {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+<div class="checkout-page-content">
+{% load koszyk_tags %}
+<div class="order-summary-section">
+    <h2>Podsumowanie zamówienia</h2>
+{% for produkt in produkty %}
+  {{ produkt.nazwa }}<br>
+  <img src="{{ produkt.zdjecie.url }}" alt="{{ produkt.nazwa }}" width="100"><br>
+  ilość: {{ koszyk|dict_get:produkt.id|stringformat:"s" }}<br>
+  cena za 1 szt.: {{ produkt.cena }}<br>
+razem: {{ produkt.cena|floatformat:2 }} × {{ koszyk|dict_get:produkt.id|stringformat:"s" }} zł<br><br>
+{% endfor %}
+    </div>
+
+    <div class="user-form-section">
+<form method="post" action="{% url 'checkout' %}">
+    {% csrf_token %}
+    <h2>Twoje dane</h2>
+    <label for="imie">Imię:</label><br>
+    <input type="text" id="imie" name="imie"><br><br>
+    <label for="nazwisko">Nazwisko:</label><br>
+    <input type="text" id="nazwisko" name="nazwisko"><br><br>
+    <label for="adres">Adres zamieszkania</label><br>
+    <input type="text" id="adres" name="adres"><br><br>
+    <label for="email">Adres e-mail</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    <label for="nrtel">Numer telefonu</label><br>
+    <input type="tel" id="nrtel" name="nrtel"><br><br>
+    <input type="submit" value="Złóż zamówienie">
+</form>
+    </div>
+<a href="{% url 'pokaz_koszyk' %}" class="btn">Wróc do koszyka</a>
+</div>
+</body>
+</html>

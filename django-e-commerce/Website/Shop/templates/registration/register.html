@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="{% static '/Shop/css/style.css' %}">
+
+</head>
+<body>
+{% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+<div class="register-form-container">
+<form method="post" action="{% url 'register' %}">
+  {% csrf_token %}
+    {{ form.non_field_errors }}
+
+  <label>Nazwa użytkownika:</label><br>
+  <p>{{ form.username }} {{ form.username.errors }}</p>
+  <label>Hasło:</label><br>
+ <p>{{ form.password1 }} {{ form.password.errors }}</p>
+  <label>Powtórz hasło:</label><br>
+ <p>{{ form.password2 }} {{ form.password2.errors }}</p>
+  <input type="submit" value="Zarejestruj się"><br>
+
+</form>
+<a href="{% url 'lista_produktow' %}" class="btn">Powrót do strony głównej</a>
+
+    </div>
+</body>
+</html>

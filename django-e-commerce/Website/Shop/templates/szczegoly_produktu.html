@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Szczegółowe informacje o produkcie</title>
+    <link rel="stylesheet" href="{% static '/Shop/css/style.css' %}">
+</head>
+<body>
+ {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+<div class="product-detail">
+    <div class="product-details-container">
+<h2>Nazwa: {{ produkt.nazwa }}</h2>
+        <div class="product-brand">
+<h2>Marka: {{ produkt.marka }}</h2>
+        </div>
+<h3>Cena: {{ produkt.cena }} zł</h3>
+<p>Opis: {{ produkt.opis }}</p>
+<h2>Kategoria: {{ produkt.get_kategoria_display }}</h2>
+        <a href="{% url 'lista_produktow' %}" class="btn">Wróć na stronę główną</a>
+
+    </div>
+    <div class="product-image-container">
+<img src="{{ produkt.zdjecie.url }}" alt="{{ produkt.nazwa }}" width="200">
+
+  <form action="{% url 'dodaj_do_koszyka' produkt.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Dodaj do koszyka</button>
+  </form>
+    </div>
+    <div class="product-details-container">
+    </div>
+</div>
+
+</body>
+</html>

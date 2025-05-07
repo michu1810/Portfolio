@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="{% static '/Shop/css/style.css' %}">
+
+</head>
+<body>
+{% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+<div class="login-form-container">
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <label>Nazwa użytkownika:</label><br>
+  <p>{{ form.username }} {{ form.username.errors }}</p>
+  <label>Hasło:</label><br>
+ <p>{{ form.password }} {{ form.password.errors }}</p>
+    <input type="submit" value="Zaloguj">
+</form>
+    <a href="{% url 'lista_produktow' %}" class="btn">Powrót na stronę główną</a>
+    </div>
+
+</body>
+</html>

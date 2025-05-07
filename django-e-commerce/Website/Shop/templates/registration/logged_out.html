@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Wylogowano</title>
+    <link rel="stylesheet" href="{% static '/Shop/css/style.css' %}">
+
+</head>
+<body>
+{% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="message {{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+<div class="logged-out-information">
+<h1>Pomyślnie wylogowano</h1>
+<a href="{% url 'lista_produktow' %}" class="btn">Wróc do strony głównej</a>
+
+    </div>
+</body>
+</html>
