@@ -21,8 +21,8 @@ W `views.py` obsługuję filtrowanie po tytule, autorze i statusie za pomocą pa
 
 ## 🛠️ Technologie
 
-- Python 3.11+
-- Django 4.x
+- Python 3.13
+- Django 5.2
 - SQLite3
 - HTML + Bootstrap 5
 
@@ -92,8 +92,8 @@ In `views.py`, I handle filtering by title, author, and status using GET paramet
 
 ## 🛠️ Technologies
 
-- Python 3.11+
-- Django 4.x
+- Python 3.13
+- Django 5.2
 - SQLite3
 - HTML + Bootstrap 5
 
