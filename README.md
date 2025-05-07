@@ -106,7 +106,7 @@ Each project reflects what I've learned and how I’m developing as a Python dev
 
 ---
 
-### 🛍️ Django Online Store – Webshop application  
+### 🛍️ Django Online Store – Web application  
 > Full Django web app to browse and filter products, manage a session-based shopping cart, and place orders. Includes pagination, form handling, messages, and user auth. This is the most advanced web application I have ever made.
 
 🔗 [View project](https://github.com/michu1810/Portfolio/django-e-commerce)  
