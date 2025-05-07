@@ -3,7 +3,7 @@
 
 Aplikacja webowa napisana w Django, która umożliwia przeglądanie, filtrowanie, dodawanie produktów do koszyka oraz składanie zamówień. Logika oparta jest na widokach funkcyjnych (FBV), z obsługą zapytań GET/POST, sesji oraz systemem wiadomości (messages) informujących o działaniach użytkownika.
 
-Ten projekt stworzyłem w 2 dni po około 3–4 tygodniach nauki Django. Celem było zrozumienie podstaw logiki sklepu internetowego, obsługi koszyka, sesji i formularzy.
+Celem było zrozumienie podstaw logiki sklepu internetowego, obsługi koszyka, sesji i formularzy.
 
 ---
 
@@ -32,19 +32,18 @@ Ten projekt stworzyłem w 2 dni po około 3–4 tygodniach nauki Django. Celem b
 
 ## 🛠️ Technologie
 
-- Python 3.12
+- Python 3.13
 - Django 5.x
 - SQLite3 (dev)
 - HTML + CSS (bez frameworków)
-- System messages wbudowany w Django
 
 ---
 
 ## 🚀 Jak uruchomić lokalnie
 
 ```bash
-git clone https://github.com/michu1810/django-sklep.git
-cd django-sklep
+git clone https://github.com/michu1810/django-e-commerce.git
+cd django-e-commerce
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
@@ -84,7 +83,7 @@ Michał Jamros
 
 A web application built with Django that allows users to browse, filter and add products to a shopping cart, and place orders using a simple checkout form. The logic is based on function-based views (FBV), with GET/POST request handling, session-based cart management, and flash message notifications using Django's built-in `messages`.
 
-This project was created in 2 days after around 3–4 weeks of learning Django. The goal was to practice core web development concepts: views, sessions, form handling, and database interaction.
+The goal was to practice core web development concepts: views, sessions, form handling, and database interaction.
 
 ---
 
@@ -113,11 +112,10 @@ This project was created in 2 days after around 3–4 weeks of learning Django. 
 
 ## 🛠️ Technologies
 
-- Python 3.12
+- Python 3.13
 - Django 5.x
 - SQLite3 (for development)
 - HTML + custom CSS
-- Django’s messages framework for alerts
 
 ---
 
