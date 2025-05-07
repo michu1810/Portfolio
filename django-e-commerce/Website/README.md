@@ -1,83 +1,160 @@
-# 🛍️ Django Sklep Internetowy (PL)  
-Ten projekt to aplikacja sklepu internetowego napisana w Django. Umożliwia przeglądanie produktów, filtrowanie po nazwie, marce, cenie i kategorii, dodawanie ich do koszyka, składanie zamówień oraz rejestrację i logowanie użytkowników. Projekt wykonałem korzystając głównie z dokumentacji i samodzielnych eksperymentów.
 
-Celem projektu była nauka:
-- obsługi widoków i sesji w Django,
-- filtrowania danych z formularzy GET,
-- paginacji i wiadomości (messages),
-- stylowania aplikacji z użyciem własnego CSS.
+# 🛍️ Django Sklep Internetowy – aplikacja sklepu online
+
+Aplikacja webowa napisana w Django, która umożliwia przeglądanie, filtrowanie, dodawanie produktów do koszyka oraz składanie zamówień. Logika oparta jest na widokach funkcyjnych (FBV), z obsługą zapytań GET/POST, sesji oraz systemem wiadomości (messages) informujących o działaniach użytkownika.
+
+Ten projekt stworzyłem w 2 dni po około 3–4 tygodniach nauki Django. Celem było zrozumienie podstaw logiki sklepu internetowego, obsługi koszyka, sesji i formularzy.
 
 ---
-### ✨ Główne funkcje aplikacji:
 
-- 🔍 **Lista produktów z filtrowaniem** – filtruj po nazwie, marce, cenie oraz kategorii.
-- 📦 **Koszyk** – dodawanie, usuwanie i aktualizacja produktów. Koszyk oparty na sesji.
-- 🧾 **Checkout** – formularz zamówienia z danymi klienta i zapis do bazy danych.
-- ✅ **Rejestracja / logowanie / wylogowanie** – wykorzystanie autoryzacji Django.
-- 🛠️ **System powiadomień (messages)** – informacja o dodaniu do koszyka, złożeniu zamówienia i innych akcjach.
-- 📄 **Paginacja** – lista produktów z podziałem na strony.
-- 💡 **Responsywny frontend (HTML + CSS)** – prosta, przejrzysta szata graficzna.
+## 🔍 Funkcje
 
-### 🧠 Co się dzieje pod spodem (technicznie):
+- ✅ Lista produktów z filtrowaniem po nazwie, marce, cenie i kategorii
+- ✅ Paginacja listy produktów
+- ✅ Szczegóły pojedynczego produktu z możliwością dodania do koszyka
+- ✅ Koszyk działający na sesji: dodawanie, zmiana ilości, usuwanie
+- ✅ Formularz zamówienia (checkout) – zapis do bazy danych
+- ✅ Rejestracja i logowanie użytkownika (Django auth)
+- ✅ Komunikaty po każdej akcji (messages)
+- ✅ Prosty, przejrzysty interfejs (HTML + CSS)
 
-- Modele: `Product`, `Order`, `OrderItem`
-- Widoki: CBV i FBV (`@require_POST`, `@login_required`)
-- Sesja przechowuje koszyk
-- `UserCreationForm` do rejestracji użytkowników
-- `Paginator` do listy produktów
-- `messages` do wyświetlania komunikatów
-- Szablony HTML i własne style CSS
+---
 
-### 🔧 Technologie:
+## 🧠 Jak działa aplikacja
+
+- Produkty pobierane są z bazy danych i filtrowane po `request.GET`.
+- Paginacja (po 8 produktów) realizowana jest przez `Paginator`.
+- Koszyk przechowywany jest w `request.session` jako słownik `{produkt_id: ilość}`.
+- Formularz zamówienia zbiera dane użytkownika i tworzy wpisy w modelach `Order` i `OrderItem`.
+- Komunikaty po dodaniu do koszyka lub złożeniu zamówienia wyświetlane są dzięki `messages.success(...)`.
+
+---
+
+## 🛠️ Technologie
+
+- Python 3.12
 - Django 5.x
 - SQLite3 (dev)
-- HTML, CSS (własnoręcznie stylowane)
-- Python 3.12
+- HTML + CSS (bez frameworków)
+- System messages wbudowany w Django
 
 ---
 
-## 🇬🇧 About the project (EN)
+## 🚀 Jak uruchomić lokalnie
 
-Hi! 👋  
-This is my first major Django project, built in 2 days after just about 3–4 weeks of learning Django. I learned everything from scratch by researching documentation, articles, and community posts. The goal was to build a fully working online shop – and I did it! 💪
+```bash
+git clone https://github.com/michu1810/django-sklep.git
+cd django-sklep
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
 
-### ✨ Key Features:
+Aplikacja dostępna będzie pod `http://localhost:8000/Shop/lista/`
 
-- 🔍 **Product listing with filters** – by name, brand, price, and category.
-- 📦 **Shopping cart** – add, remove, and update items. Session-based.
-- 🧾 **Checkout** – order form with user input, saved to the database.
-- ✅ **User authentication** – register, log in, and log out using Django's auth system.
-- 🛠️ **Message system** – feedback after actions (e.g., adding to cart, placing order).
-- 📄 **Pagination** – paged product listing.
-- 💡 **Responsive frontend (HTML + CSS)** – clean, minimal design.
+---
 
-### 🧠 Under the hood (tech stack):
+## 📁 Struktura projektu
 
-- Models: `Product`, `Order`, `OrderItem`
-- Views: CBV and FBV (`@require_POST`, `@login_required`)
-- Cart stored in session
-- `UserCreationForm` for registration
-- `Paginator` for product pages
-- `messages` for flash notifications
-- Custom HTML templates and CSS styling
+```
+django-sklep/
+├── manage.py
+├── Website/
+│   ├── settings.py, urls.py
+├── Shop/
+│   ├── views.py
+│   ├── models.py
+│   ├── urls.py
+│   ├── templates/
+│   ├── static/
+│   └── migrations/
+└── db.sqlite3
+```
 
-### 🛠 Technologies:
+---
+
+## ✍️ Autor
+
+Michał Jamros  
+[GitHub: michu1810](https://github.com/michu1810)
+
+---
+
+# 🛍️ Django Online Store – webshop project in Django
+
+A web application built with Django that allows users to browse, filter and add products to a shopping cart, and place orders using a simple checkout form. The logic is based on function-based views (FBV), with GET/POST request handling, session-based cart management, and flash message notifications using Django's built-in `messages`.
+
+This project was created in 2 days after around 3–4 weeks of learning Django. The goal was to practice core web development concepts: views, sessions, form handling, and database interaction.
+
+---
+
+## 🔍 Features
+
+- ✅ Product list with filters: name, brand, price, category
+- ✅ Pagination (8 products per page)
+- ✅ Product detail page with "Add to cart" option
+- ✅ Session-based shopping cart: add, remove, update quantity
+- ✅ Order form (checkout) saving data to database
+- ✅ User registration and login (Django auth system)
+- ✅ Flash messages for key actions (cart, orders, etc.)
+- ✅ Clean and minimal HTML + CSS interface
+
+---
+
+## 🧠 How it works
+
+- Products are filtered using `request.GET` values.
+- Pagination is handled with Django’s `Paginator`.
+- Cart is stored in `request.session` as a Python dictionary `{product_id: quantity}`.
+- Checkout form collects customer info and creates `Order` and `OrderItem` entries.
+- `messages.success()` displays feedback for key user actions.
+
+---
+
+## 🛠️ Technologies
+
+- Python 3.12
 - Django 5.x
-- SQLite3 (dev)
-- HTML & custom CSS
-- Python 3.12
+- SQLite3 (for development)
+- HTML + custom CSS
+- Django’s messages framework for alerts
 
 ---
 
-## 💡 Co dalej?
+## 🚀 How to run locally
 
-Projekt można łatwo rozbudować o:
-- panel admina dla zarządzania produktami,
-- wysyłanie maili z potwierdzeniem zamówienia,
-- integrację z płatnościami,
-- API REST i frontend np. w React.
+```bash
+git clone https://github.com/michu1810/django-sklep.git
+cd django-sklep
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
 
-Dziękuję za uwagę! 🙌
+The app will be available at `http://localhost:8000/Shop/lista/`
 
 ---
 
+## 📁 Project structure
+
+```
+django-sklep/
+├── manage.py
+├── Website/
+│   ├── settings.py, urls.py
+├── Shop/
+│   ├── views.py
+│   ├── models.py
+│   ├── urls.py
+│   ├── templates/
+│   ├── static/
+│   └── migrations/
+└── db.sqlite3
+```
+
+---
+
+## ✍️ Author
+
+Michał Jamros  
+[GitHub: michu1810](https://github.com/michu1810)
