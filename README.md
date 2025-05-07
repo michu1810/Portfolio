@@ -30,7 +30,7 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 > Pełna aplikacja webowa w Django umożliwiająca przeglądanie, filtrowanie produktów, dodawanie ich do koszyka i składanie zamówień. Obsługuje sesje, paginację, formularze, komunikaty i autoryzację. Jest moją najbardziej rozbudowaną aplikacją.
 
 🔗 [Zobacz projekt](https://github.com/michu1810/Portfolio/tree/main/django-e-commerce/Website)  
-📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/django-e-commerce/blob/main/README.md)
+📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/tree/main/django-e-commerce/Website#readme)
 
 ---
 
@@ -110,7 +110,7 @@ Each project reflects what I've learned and how I’m developing as a Python dev
 > Full Django web app to browse and filter products, manage a session-based shopping cart, and place orders. Includes pagination, form handling, messages, and user auth. This is the most advanced web application I have ever made.
 
 🔗 [View project](https://github.com/michu1810/Portfolio/tree/main/django-e-commerce/Website)  
-📄 [Project README](https://github.com/michu1810/Portfolio/django-e-commerce/blob/main/README.md)
+📄 [Project README](https://github.com/michu1810/Portfolio/tree/main/django-e-commerce/Website#readme)
 
 ---
 
