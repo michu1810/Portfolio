@@ -33,7 +33,7 @@ Celem było zrozumienie podstaw logiki sklepu internetowego, obsługi koszyka, s
 ## 🛠️ Technologie
 
 - Python 3.13
-- Django 5.x
+- Django 5.2
 - SQLite3 (dev)
 - HTML + CSS (bez frameworków)
 
@@ -113,7 +113,7 @@ The goal was to practice core web development concepts: views, sessions, form ha
 ## 🛠️ Technologies
 
 - Python 3.13
-- Django 5.x
+- Django 5.2
 - SQLite3 (for development)
 - HTML + custom CSS
 
