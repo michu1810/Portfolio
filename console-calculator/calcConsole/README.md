@@ -30,7 +30,7 @@ Wszystkie działania zapisują się w liście `historia`, a na zakończenie moż
 
 ## 🚀 Jak uruchomić?
 
-1. Upewnij się, że masz zainstalowanego Pythona (3.11+):
+1. Upewnij się, że masz zainstalowanego Pythona (3.13):
 
 ```bash
 python calc.py
@@ -92,7 +92,7 @@ All operations are stored in a list called `historia`, and at the end of the ses
 
 ## 🚀 How to Run
 
-1. Make sure Python (3.11+) is installed:
+1. Make sure Python (3.13) is installed:
 
 ```bash
 python calc.py
