@@ -1,10 +1,13 @@
-# 🛍️ Sklep Internetowy (Django)
+# 🛍️ Django Sklep Internetowy (PL)  
+Ten projekt to aplikacja sklepu internetowego napisana w Django. Umożliwia przeglądanie produktów, filtrowanie po nazwie, marce, cenie i kategorii, dodawanie ich do koszyka, składanie zamówień oraz rejestrację i logowanie użytkowników. Projekt wykonałem korzystając głównie z dokumentacji i samodzielnych eksperymentów.
 
-## O projekcie (🇵🇱)
+Celem projektu była nauka:
+- obsługi widoków i sesji w Django,
+- filtrowania danych z formularzy GET,
+- paginacji i wiadomości (messages),
+- stylowania aplikacji z użyciem własnego CSS.
 
-Cześć! 👋  
-To mój pierwszy większy projekt stworzony w Django, zrealizowany w 2 dni po około 3-4 tygodniach nauki frameworka. Wszystkiego nauczyłem się sam, szukając w dokumentacji, artykułach i na forach. Chciałem zbudować w pełni działającą aplikację sklepu online – i udało się! 💪
-
+---
 ### ✨ Główne funkcje aplikacji:
 
 - 🔍 **Lista produktów z filtrowaniem** – filtruj po nazwie, marce, cenie oraz kategorii.
