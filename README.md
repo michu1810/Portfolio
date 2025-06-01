@@ -12,7 +12,7 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 > Aplikacja Django do tworzenia i obsługi zgłoszeń serwisowych. Workflow statusów, komentarze, przypisywanie pracowników w panelu admina, uwierzytelnianie JWT i Google OAuth2. API gotowe do integracji z front-endem.
 
 🔗 [Zobacz README projektu](https://github.com/michu1810/Portfolio/tree/main/django-serwishub#readme)  
-🎥 [Zobacz demo wideo](LINK_DO_FILMIKU)
+🎥 [Zobacz demo wideo](https://streamable.com/i4ia23)
 
 ---
 
