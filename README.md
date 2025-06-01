@@ -1,7 +1,7 @@
 # 🧠 Python & Django Portfolio by Michał Jamros
 
 Cześć! 👋  
-Witaj w moim repozytorium z projektami stworzonymi w Pythonie oraz Django. Znajdziesz tu  proste gry i aplikacje konsolowe, oraz pełne aplikacje webowe.  
+Witaj w moim repozytorium z projektami stworzonymi w Pythonie oraz Django. Znajdziesz tu aplikacje konsolowe, oraz pełne aplikacje webowe.  
 Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętności jako Python developer 💻
 
 ---
@@ -76,13 +76,16 @@ To repozytorium pokazuje mój rozwój jako programisty — krok po kroku.
 - SQLite 3
 - Git & GitHub
 - Podstawy front-endu (HTML/CSS)
+- Postman
+- Docker
+- JavaScript (minimalne użycie dla usprawnienia funkcjonalności, gotowe fragmenty)
 
 ---
 
 # 🧠 Python & Django Portfolio by Michał Jamros (EN)
 
 Hi! 👋  
-Welcome to my repository featuring Python and Django projects. You'll find simple terminal games and fully functional web apps.  
+Welcome to my repository featuring Python and Django projects. You'll find simple terminal and fully functional web apps.  
 Each project reflects what I've learned and how I’m developing as a Python developer 💻
 
 ---
@@ -157,4 +160,8 @@ This repo is a reflection of my growth as a developer, step by step.
 - SQLite 3
 - Git & GitHub
 - Basic front-end (HTML/CSS)
-"""
+- Postman
+- Docker
+- JavaScript (minimal usage to enhance functionality, ready-to-use snippets)
+
+  
