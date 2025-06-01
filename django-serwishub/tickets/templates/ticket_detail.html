@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block title %}Szczegóły zgłoszenia{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="display-6 fw-bold mb-4 text-center"><i class="bi bi-file-earmark-text"></i> Szczegóły zgłoszenia</h2>
+
+  <div class="card mt-4 shadow-sm rounded-3 border-0">
+    <div class="card-header">
+      <strong>{{ ticket.tytul }}</strong>
+    </div>
+
+    <div class="card-body text-center">
+      <p><strong>Opis:</strong>
+        {% if can_edit_description %}
+        <form method="post" class="d-inline">
+          {% csrf_token %}
+          <textarea name="opis" rows="3" class="form-control d-inline-block" style="width: 100%; max-width: 600px;">{{ ticket.opis|default:"Brak opisu" }}</textarea>
+          <button type="submit" class="btn btn-outline-primary btn-sm ms-2" data-bs-toggle="tooltip" title="Zapisz opis">💾 Zapisz</button>
+        </form>
+        {% else %}
+        {{ ticket.opis|default:"Brak opisu" }}
+        {% endif %}
+      </p>
+      <p><strong>Data utworzenia:</strong> {{ ticket.data_utworzenia|date:"d.m.Y H:i" }}</p>
+
+      <strong>Status:</strong>
+      {% if is_worker_or_admin %}
+      <form method="post" action="{% url 'ticket_detail' ticket.id %}" class="d-inline ms-2">
+        {% csrf_token %}
+        <select name="nowy_status" class="form-select d-inline w-auto">
+          {% for status, label in ticket.STATUS_CHOICES %}
+          <option value="{{ status }}" {% if ticket.status == status %}selected{% endif %}>
+            {{ label|capfirst }}
+          </option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-sm btn-primary ms-1" data-bs-toggle="tooltip" title="Zapisz status">💾</button>
+      </form>
+      {% endif %}
+
+
+
+      <div class="progress-container mt-2">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated
+            {% if ticket.status == 'nowe' %}bg-primary{% elif ticket.status == 'w trakcie' %}bg-warning{% elif ticket.status == 'gotowe' %}bg-success{% else %}bg-secondary{% endif %}"
+            role="progressbar"
+            style="width:
+              {% if ticket.status == 'nowe' %}25%{% elif ticket.status == 'w trakcie' %}50%{% elif ticket.status == 'gotowe' %}75%{% else %}100%{% endif %}">
+            {{ ticket.status|capfirst }}
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card mt-4 shadow-sm">
+        <div class="card-header">💬 Komentarze / Uwagi</div>
+        <div class="card-body">
+          {% if komentarze %}
+          {% for komentarz in komentarze %}
+          <div class="mb-2 p-2 border rounded bg-light text-start">
+            <strong>{{ komentarz.autor.first_name }} -
+              {% if komentarz.autor.is_superuser %}Admin
+              {% elif komentarz.autor.is_staff %}Pracownik
+              {% else %}Klient
+              {% endif %}
+            </strong>
+            <small class="text-muted d-block">{{ komentarz.data_dodania|date:"d.m.Y H:i" }}</small>
+            <p class="mb-0">{{ komentarz.tresc|linebreaks }}</p>
+            {% if request.user.is_superuser or request.user == komentarz.autor %}
+             <form method="post" action="{% url 'usun_komentarz' komentarz.id %}" style="display: inline;">
+                {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-danger mt-1" title="Usuń komentarz">🗑</button>
+            </form>
+            {% endif %}
+          </div>
+          {% endfor %}
+          {% else %}
+          <p class="text-muted empty-state">Brak komentarzy.</p>
+          {% endif %}
+
+          {% if is_worker_or_admin %}
+          <form method="post" action="{% url 'ticket_detail' ticket.id %}" class="mt-3">
+            {% csrf_token %}
+            <div class="mb-3">
+              <textarea name="uwagi" rows="3" class="form-control" placeholder="Dodaj komentarz..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" title="Dodaj komentarz">💬 Dodaj komentarz</button>
+          </form>
+          {% endif %}
+
+        </div>
+      </div>
+
+      {% if ticket.zdjecie %}
+      <br>
+      <img src="{{ ticket.zdjecie.url }}" alt="Zdjęcie zgłoszenia" class="img-thumbnail shadow-sm rounded mt-3 mb-3" style="max-height: 300px;">
+      {% endif %}
+
+
+    </div>
+    {% if request.user.is_superuser %}
+    <div class="text-center my-3">
+          <form method="post" action="{% url 'usun_ticket' ticket.id %}" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger mt-2 mb-2">🗑 Usuń zgłoszenie</button>
+          </form>
+        {% endif %}
+      </div>
+  </div>
+
+  <a href="{% url 'ticket-list' %}" class="btn btn-outline-secondary rounded-pill d-block mx-auto mt-4 mb-5">
+    <i class="bi bi-arrow-left me-1"></i> Powrót do listy
+  </a>
+  <a href="{% url 'main' %}" class="btn btn-outline-primary rounded-pill d-block mx-auto mt-2 mb-5">
+    <i class="bi bi-arrow-left me-1"></i> Powrót na stronę główną
+  </a>
+</div>
+
+
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmDeleteModalLabel">Potwierdź usunięcie</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+      </div>
+      <div class="modal-body">Czy na pewno chcesz usunąć ten komentarz?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Anuluj</button>
+        <form id="deleteForm" method="post">{% csrf_token %}
+          <button type="submit" class="btn btn-danger">🗑 Usuń</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SerwisHub{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    .fade-out {
+      transition: opacity 0.5s ease-out;
+      opacity: 0;
+      }
+    body {
+      scroll-behavior: smooth;
+    }
+
+    .empty-state {
+      color: #999;
+      font-style: italic;
+    }
+
+    .progress-container {
+      margin-top: 10px;
+    }
+    .card:hover {
+      transform: scale(1.02);
+      transition: transform 0.2s;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'main' %}">SerwisHub</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavContent" aria-controls="navbarNavContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavContent">
+      <ul class="navbar-nav ms-auto">
+        {% if user.is_authenticated %}
+          {% if user.is_superuser %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'ticket-list' %}" data-bs-toggle="tooltip" title="Przeglądaj wszystkie zgłoszenia">
+                <i class="bi bi-card-list"> Zgłoszenia</i>
+              </a>
+            </li>
+          {% elif user.is_staff %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'ticket-list' %}" data-bs-toggle="tooltip" title="Twoje przypisane zgłoszenia">
+                <i class="bi bi-card-list"> Moje zgłoszenia</i>
+              </a>
+            </li>
+          {% else %}
+            {% if request.resolver_match.url_name != 'main' %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'ticket-list' %}" data-bs-toggle="tooltip" title="Twoje zgłoszenia">
+                  <i class="bi bi-card-list"> Moje zgłoszenia</i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'create_ticket' %}" data-bs-toggle="tooltip" title="Stwórz nowe zgłoszenie">
+                  <i class="bi bi-plus-circle"> Stwórz zgłoszenie</i>
+                </a>
+              </li>
+            {% endif %}
+          {% endif %}
+          <li class="nav-item">
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-sm btn-outline-light ms-2" data-bs-toggle="tooltip" title="Wyloguj się z konta">
+                <i class="bi bi-box-arrow-right"> Wyloguj się</i>
+              </button>
+            </form>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% if messages %}
+<div class="container mt-3">
+  {% for message in messages %}
+    <div class="alert alert-success fade-message">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function () {
+        const btn = this.querySelector('button[type="submit"]');
+        if (btn) {
+          btn.disabled = true;
+          btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Przetwarzanie...';
+        }
+      });
+    });
+
+
+    setTimeout(() => {
+      document.querySelectorAll('.fade-message').forEach(alert => {
+        alert.classList.add('fade-out');
+      });
+    }, 3000);
+  });
+</script>
+</body>
+</html>

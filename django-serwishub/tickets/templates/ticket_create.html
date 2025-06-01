@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Stwórz zlecenie{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4">Dodaj Zgłoszenie</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="mb-3">
+    {{ form.tytul.label_tag }}
+    {{ form.tytul }}
+    {% if request.method == "POST" and form.tytul.errors %}
+        <div class="text-danger">{{ form.tytul.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+    {{ form.opis.label_tag }}
+    {{ form.opis }}
+    {% if request.method == "POST" and form.opis.errors %}
+        <div class="text-danger">{{ form.opis.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+    {{ form.status }}
+    {% if request.method == "POST" and form.status.errors %}
+        <div class="text-danger">{{ form.status.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+    {{ form.zdjecie.label_tag }}
+    {{ form.zdjecie }}
+    {% if request.method == "POST" and form.zdjecie.errors %}
+        <div class="text-danger">{{ form.zdjecie.errors }}</div>
+        {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Zapisz ticket</button>
+</form>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

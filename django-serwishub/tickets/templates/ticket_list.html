@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista ticketów{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  {% if user.is_superuser %}
+    <h3 class="display-6 fw-bold mb-4"><i class="bi bi-ticket-perforated me-2"></i>Wszystkie tickety</h3>
+  {% elif user.is_staff %}
+    <h3 class="display-6 fw-bold mb-4"><i class="bi bi-ticket-perforated me-2"></i>Tickety przypisane do Ciebie</h3>
+  {% else %}
+    <h3 class="display-6 fw-bold mb-4"><i class="bi bi-ticket-perforated me-2"></i>Twoje tickety</h3>
+  {% endif %}
+
+
+  <div class="accordion" id="filterAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFilters">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters">
+          🔎 Filtrowanie
+        </button>
+      </h2>
+      <div id="collapseFilters" class="accordion-collapse collapse" aria-labelledby="headingFilters" data-bs-parent="#filterAccordion">
+        <div class="accordion-body">
+          <form method="get" class="row g-3 align-items-center">
+            <div class="col-auto">
+              {{ filter.form.status }}
+            </div>
+            <div class="col-auto">
+              {{ filter.form.date }}
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary" data-bs-toggle="tooltip" title="Filtruj tickety">🔎 Filtruj</button>
+            </div>
+            <div class="col-auto">
+              <a href="{% url 'ticket-list' %}" class="btn btn-outline-secondary" data-bs-toggle="tooltip" title="Wyczyść filtry">🧹 Wyczyść</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% for ticket in tickets %}
+  <div class="card mb-4 shadow-sm border-0">
+    <div class="card-header">
+      <h5 class="fw-bold"><i class="bi bi-clipboard2-check me-2"></i> Tytuł: {{ ticket.tytul }}</h5>
+    </div>
+    <div class="card-body px-4 py-3 text-center">
+      <p>Data utworzenia: {{ ticket.data_utworzenia|date:"d.m.Y H:i" }}</p>
+
+
+      <div class="progress-container mt-2 mb-2">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated
+            {% if ticket.status == 'nowe' %}bg-primary{% elif ticket.status == 'w trakcie' %}bg-warning{% elif ticket.status == 'gotowe' %}bg-success{% else %}bg-secondary{% endif %}"
+            role="progressbar"
+            style="width:
+              {% if ticket.status == 'nowe' %}25%{% elif ticket.status == 'w trakcie' %}50%{% elif ticket.status == 'gotowe' %}75%{% else %}100%{% endif %}">
+            {{ ticket.status|capfirst }}
+          </div>
+        </div>
+      </div>
+
+      {% if ticket.zdjecie %}
+      <img src="{{ ticket.zdjecie.url }}" alt="Zdjęcie zgłoszenia" class="img-thumbnail shadow-sm mt-2" style="max-height: 205px;">
+      {% endif %}
+    </div>
+    <a href="{% url 'ticket_detail' ticket.id %}" class="btn btn-primary rounded-pill px-4 shadow-sm mt-3 mb-2 mx-auto d-block" style="color: white; width: 200px;" data-bs-toggle="tooltip" title="Zobacz szczegóły">
+      <i class="bi bi-eye me-1"></i> Szczegóły
+    </a>
+  </div>
+  {% empty %}
+  <div class="alert alert-info text-center mt-4 p-4 shadow-sm empty-state">
+    <i class="bi bi-info-circle me-2"></i> Brak zgłoszeń do wyświetlenia.
+  </div>
+  {% endfor %}
+
+
+  <div class="d-flex justify-content-center mt-4">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        {% if tickets.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?{% if request.GET.status %}status={{ request.GET.status }}&{% endif %}{% if request.GET.date %}date={{ request.GET.date }}&{% endif %}page={{ tickets.previous_page_number }}">« Poprzednia</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="page-link">« Poprzednia</span>
+          </li>
+        {% endif %}
+
+        {% for num in tickets.paginator.page_range %}
+          {% if tickets.number == num %}
+            <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+          {% else %}
+            <li class="page-item">
+              <a class="page-link" href="?{% if request.GET.status %}status={{ request.GET.status }}&{% endif %}{% if request.GET.date %}date={{ request.GET.date }}&{% endif %}page={{ num }}">{{ num }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+        {% if tickets.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?{% if request.GET.status %}status={{ request.GET.status }}&{% endif %}{% if request.GET.date %}date={{ request.GET.date }}&{% endif %}page={{ tickets.next_page_number }}">Następna »</a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="page-link">Następna »</span>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endblock %}

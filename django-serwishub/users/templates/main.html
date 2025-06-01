@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Strona główna{% endblock %}
+
+{% block content %}
+
+{% if not request.user.is_authenticated %}
+  <div class="container mt-5">
+      <div class="card p-5 text-center shadow">
+      <h2><i class="bi bi-house-door me-2"></i> Witaj w SerwisHub!</h2>
+      <p class="lead text-muted">Zaloguj się lub zarejestruj, aby zarządzać zgłoszeniami serwisowymi.</p>
+          <div class="mt-4">
+      <a href="{% url 'login' %}" class="btn btn-primary m-2">👤 Zaloguj się</a>
+              <a href="{% url 'register' %}" class="btn btn-secondary m-2">📝 Zarejestruj się</a>
+        </div>
+   </div>
+  </div>
+{% else %}
+  <div class="container text-center mt-5">
+      {% if user.is_superuser %}
+        <h2 class="text-success">👑 Witaj, Administratorze {{ user.first_name|default:user.email }}!</h2>
+        <p class="text-muted">Masz pełny dostęp do wszystkich zgłoszeń i użytkowników.</p>
+
+      {% elif user.is_staff %}
+        <h2 class="text-primary">🔧 Witaj, Pracowniku {{ user.first_name|default:user.email }}!</h2>
+        <p class="text-muted">Możesz zarządzać zgłoszeniami przypisanymi do Ciebie.</p>
+
+      {% else %}
+        <h2>👋 Witaj, {{ user.first_name|default:user.email }}!</h2>
+        <p class="text-muted">Możesz zarządzać swoimi zgłoszeniami.</p>
+
+        <div class="my-4">
+          <a href="{% url 'ticket-list' %}" class="btn btn-outline-primary m-2">
+              📋 Zobacz zgłoszenia
+          </a>
+          <a href="{% url 'create_ticket' %}" class="btn btn-success m-2">
+              ➕ Stwórz nowe zgłoszenie
+          </a>
+        </div>
+      {% endif %}
+
+      {% if recent_tickets %}
+      <div class="mt-5 text-start">
+          <h4>Twoje ostatnie zgłoszenia:</h4>
+          <div class="list-group">
+              {% for ticket in recent_tickets %}
+              <a href="{% url 'ticket_detail' ticket.id %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  {{ ticket.tytul|default:"Brak tytułu" }}
+                  <span class="badge
+                  {% if ticket.status == 'nowe' %} bg-primary rounded-pill
+                  {% elif ticket.status == 'w trakcie' %} bg-warning rounded-pill
+                  {% elif ticket.status == 'gotowe' %} bg-success rounded-pill
+                  {% elif ticket.status == 'odebrane' %} bg-secondary rounded-pill
+                   {% endif %}">{{ ticket.status|title }}</span>
+              </a>
+              {% endfor %}
+          </div>
+      </div>
+      {% else %}
+        <p class="mt-4">Nie masz jeszcze żadnych zgłoszeń.</p>
+      {% endif %}
+  </div>
+{% endif %}
+
+{% endblock %}

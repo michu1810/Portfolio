@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n socialaccount %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+  <h2>{% trans "Zaloguj się przez Google" %}</h2>
+  <p>{% trans "Zostaniesz przekierowany do Google, aby się zalogować." %}</p>
+
+  <form method="post" action="{% provider_login_url 'google'%}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-lg mt-3">
+      <i class="bi bi-google"></i> Kontynuuj z Google
+    </button>
+  </form>
+  <a href="{% url 'login' %}" class="btn btn-primary mt-2">Wróć na stronę logowania</a>
+</div>
+{% endblock %}

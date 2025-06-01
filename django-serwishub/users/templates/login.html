@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+
+{% block title %}Logowanie{% endblock %}
+
+{% block content %}
+
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+  <div class="card shadow p-4 w-100" style="max-width: 400px;">
+    <h4 class="text-center mb-4">
+      <i class="bi bi-person-lock me-2"></i>Zaloguj się do SerwisHub
+    </h4>
+{% if form.non_field_errors %}
+    <div class="alert alert-danger">
+      {{ form.non_field_errors }}
+    </div>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    {{ form.email.label_tag }}
+    {{ form.email }}
+    {% if form.email.errors %}
+    <div class="text-danger small">{{ form.email.errors }}</div>
+    {% endif %}
+  </div>
+
+  <div class="mb-3">
+    {{ form.password.label_tag }}
+    {{ form.password }}
+    {% if request.method == "POST" and form.password.errors %}
+    <div class="text-danger small">{{ form.password.errors }}</div>
+    {% endif %}
+  </div>
+  <a href="{% provider_login_url 'google' %}" class="btn btn-outline-danger">
+    <i class="bi bi-google"></i> Zaloguj się przez Google
+  </a>
+<button type="submit" class="btn btn-primary">Zaloguj się</button>
+</form>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}
