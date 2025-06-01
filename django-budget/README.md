@@ -36,8 +36,8 @@ W szablonach zastosowałem pętle, filtrowanie i podstawowe style CSS. Cały pro
 
 ## 🛠️ Technologie
 
-- Python 3.11+
-- Django 4.x
+- Python 3.13
+- Django 5.2
 - SQLite 3
 - HTML + CSS (custom)
 
@@ -112,8 +112,8 @@ The logic is implemented using classic function-based views (FBV). The app handl
 
 ## 🛠️ Technologies
 
-- Python 3.11+
-- Django 4.x
+- Python 3.13
+- Django 5.2
 - SQLite 3
 - HTML + CSS (custom)
 

@@ -22,8 +22,8 @@ Do stylowania interfejsu wykorzystałem wbudowane szablony Django oraz prosty CS
 
 ## 🛠️ Technologie
 
-- Python 3.11+
-- Django 4.x
+- Python 3.13
+- Django 5.2
 - SQLite3
 - HTML + CSS (szablony Django)
 
@@ -89,8 +89,8 @@ The entire logic is handled inside the `ideas` app, using Django's generic class
 
 ## 🛠️ Technologies
 
-- Python 3.11+
-- Django 4.x
+- Python 3.13
+- Django 5.2
 - SQLite3
 - HTML + CSS (Django templates)
 
