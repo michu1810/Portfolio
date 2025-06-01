@@ -8,13 +8,11 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 
 ## 🚀 Projekty
 
+### ⚙️ SerwisHub – Backend do zarządzania zgłoszeniami  
+> Aplikacja Django do tworzenia i obsługi zgłoszeń serwisowych. Workflow statusów, komentarze, przypisywanie pracowników w panelu admina, uwierzytelnianie JWT i Google OAuth2. API gotowe do integracji z front-endem.
 
-### 🧮 Python Calculator – Konsolowy kalkulator naukowy
-
-> Rozbudowany kalkulator terminalowy w Pythonie, obsługujący m.in. podstawowe działania, trygonometrię, silnię, logarytmy i zapis historii do pliku. Projekt skupia się na pracy z `try/except`, przetwarzaniem danych wejściowych i użyciem modułu `math`.
-
-🔎 [Zobacz kod](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/calc.py)  
-📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/README.md)
+🔗 [Zobacz README projektu](https://github.com/michu1810/Portfolio/tree/main/django-serwishub#readme)  
+🎥 [Zobacz demo wideo](LINK_DO_FILMIKU)
 
 ---
 
@@ -50,6 +48,16 @@ Każdy projekt pokazuje, czego się nauczyłem i jak rozwijam swoje umiejętnoś
 
 ---
 
+
+### 🧮 Python Calculator – Konsolowy kalkulator naukowy
+
+> Rozbudowany kalkulator terminalowy w Pythonie, obsługujący m.in. podstawowe działania, trygonometrię, silnię, logarytmy i zapis historii do pliku. Projekt skupia się na pracy z `try/except`, przetwarzaniem danych wejściowych i użyciem modułu `math`.
+
+🔎 [Zobacz kod](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/calc.py)  
+📄 [Zobacz README projektu](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/README.md)
+
+---
+
 ## 👨‍💻 O mnie
 
 Mam zajawkę na czysty, logiczny kod i naukę przez praktykę.  
@@ -81,20 +89,11 @@ Each project reflects what I've learned and how I’m developing as a Python dev
 
 ## 🚀 Projects
 
-### 🎮 Guess the Number – Python terminal game  
-> A simple terminal game where the player guesses a random number with a limited number of attempts.
+### ⚙️ SerwisHub – Service Request Management Backend  
+> Django app for managing service requests. Includes status workflow, comments, employee assignments in the admin panel, JWT & Google OAuth2 authentication. API fully ready for frontend integration.
 
-🔎 [View code](https://github.com/michu1810/Portfolio/blob/main/guess-number/gamescript.py)  
-📄 [Project README](https://github.com/michu1810/Portfolio/blob/main/guess-number/README.md)
-
----
-
-### 🧮 Python Calculator – Scientific console calculator
-
-> A console-based scientific calculator in Python. Supports basic math operations, trigonometry, factorial, logarithms, and saving history to a file. Focuses on `try/except`, input processing, and use of `math` module.
-
-🔎 [View code](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/calc.py)  
-📄 [Project README](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/README.md)
+🔗 [View project README](https://github.com/michu1810/Portfolio/tree/main/django-serwishub#readme)  
+🎥 [Watch demo video](LINK_TO_VIDEO)
 
 ---
 
@@ -127,6 +126,15 @@ Each project reflects what I've learned and how I’m developing as a Python dev
 
 🔗 [View project](https://github.com/michu1810/Portfolio/tree/main/django-library)  
 📄 [Project README](https://github.com/michu1810/Portfolio/blob/main/django-library/biblioteka/README.md)
+
+---
+
+### 🧮 Python Calculator – Scientific console calculator
+
+> A console-based scientific calculator in Python. Supports basic math operations, trigonometry, factorial, logarithms, and saving history to a file. Focuses on `try/except`, input processing, and use of `math` module.
+
+🔎 [View code](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/calc.py)  
+📄 [Project README](https://github.com/michu1810/Portfolio/blob/main/console-calculator/calcConsole/README.md)
 
 ---
 
